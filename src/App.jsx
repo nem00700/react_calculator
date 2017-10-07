@@ -17,10 +17,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="calculator">
         <Input
-          val={this.state.val}
-          change={this.handleChange.bind(this)}  
+          val={this.state.val}  
         />
       </div>
     );

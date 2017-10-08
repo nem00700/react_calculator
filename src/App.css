@@ -43,6 +43,7 @@ input[type="button"]:focus{
   background-color: #151547;
   border: none;
   padding: 0px;
+  font-size: 25px;
 }
 
 .buttons-sign{

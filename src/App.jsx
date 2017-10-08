@@ -24,7 +24,7 @@ class App extends Component {
     else if(num === "C")
       this.setState({val: ''});
     else if(isNaN(this.state.last_sign) && isNaN(num) && (this.state.last_sign !== "="))
-      this.setState({val: (a.substring(0, a.length-1) + num)});
+      this.setState({val: a.substring(0, a.length-1) + num});
     else
       this.setState({val: this.state.val + num});
     this.setState({last_sign: num});

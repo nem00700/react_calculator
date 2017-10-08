@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       val: '',
-      buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '=', '+'],
+      buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '←', '+', '=', 'C'],
       last_sign: ''
     };
 
@@ -17,9 +17,13 @@ class App extends Component {
 
   handleChange(num){
     let a = this.state.val;
-    if(num == "=")
+    if(num === "=")
       this.setState({val: new String(eval(this.state.val))});
-    else if(isNaN(this.state.last_sign) && isNaN(num) && (this.state.last_sign != undefined))
+    else if(num === "←")
+      this.setState({val: a.substring(0, a.length-1)})
+    else if(num === "C")
+      this.setState({val: ''});
+    else if(isNaN(this.state.last_sign) && isNaN(num) && (this.state.last_sign !== undefined))
       this.setState({val: a.substring(0, a.length-1) + num});
     else
       this.setState({val: this.state.val + num});

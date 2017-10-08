@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 class Input extends Component{
     render(){
-        return (<input 
-            value={this.props.val}
-            disabled
-        />);
+        return (<div className="input-field">
+            <div className="input-value">{this.props.val}</div>
+        </div>);
     }
 }
 

@@ -8,14 +8,22 @@ class App extends Component {
     super();
     this.state = {
       val: '',
-      buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '=', '+']
+      buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '=', '+'],
+      last_sign: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(num){
-    this.setState({val: this.state.val + num});
+    let a = this.state.val;
+    if(num == "=")
+      this.setState({val: new String(eval(this.state.val))});
+    else if(isNaN(this.state.last_sign) && isNaN(num) && (this.state.last_sign != undefined))
+      this.setState({val: a.substring(0, a.length-1) + num});
+    else
+      this.setState({val: this.state.val + num});
+    this.setState({last_sign: a.substring(a.length-1)});
   }
 
 

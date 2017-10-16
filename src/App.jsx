@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       val: '',
       buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '←', '+', '=', 'C'],
-      last_sign: ''
+      last_sign: '',
+      answer: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,8 +18,10 @@ class App extends Component {
 
   handleChange(num){
     let a = this.state.val;
-    if(num === "=")
-      this.setState({val: new String(eval(a))});
+    if(num === "="){
+      this.setState({val: ''});
+      this.setState({answer: new String(eval(a))})
+    }
     else if(num === "←")
       this.setState({val: a.substring(0, a.length-1)})
     else if(num === "C")
@@ -50,9 +53,16 @@ class App extends Component {
 
     return (
       <div className="calculator">
-        <Input
-          val={this.state.val}  
-        />
+        <div className="input-field">
+          <Input
+            classVal=" answer" 
+            val={this.state.answer}
+          />
+          <Input
+            classVal=" example"
+            val={this.state.val}  
+          />
+        </div>
         <div className="buttons">
           {buttons}
         </div>

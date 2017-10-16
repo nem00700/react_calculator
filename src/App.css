@@ -16,16 +16,28 @@ body{
 .input-field{
   width: 100%;
   border: none;
-  height: 50px;
+  height: 100px;
   font-size: 40px;
   background-color: #12126D;
   overflow: hidden;
   border-bottom: 5px solid black;
 }
 
+.input-field_element{
+  height: 50px;
+}
+
 .input-value{
   float: right;
   color: #E75480;
+}
+
+.answer{
+  color: rgba(159, 243, 23, 0.877);
+}
+
+.example{
+
 }
 
 .buttons{

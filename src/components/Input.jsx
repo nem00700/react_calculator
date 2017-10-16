@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class Input extends Component{
+    
+
     render(){
-        return (<div className="input-field">
-            <div className="input-value">{this.props.val}</div>
+        const classVal = 'input-value' + this.props.classVal;
+
+        return (<div className="input-field_element">
+            <div className={classVal}>{this.props.val}</div>
         </div>);
     }
 }

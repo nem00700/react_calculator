@@ -10,7 +10,8 @@ class App extends Component {
       val: '',
       buttons: [7, 8, 9, '/', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '←', '+', '=', 'C'],
       last_sign: '',
-      answer: ''
+      answer: '',
+      styleInput: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,6 +22,7 @@ class App extends Component {
     if(num === "="){
       this.setState({val: ''});
       this.setState({answer: new String(eval(a))})
+      this.setState({styleInput: false})
     }
     else if(num === "←")
       this.setState({val: a.substring(0, a.length-1)})
@@ -31,8 +33,11 @@ class App extends Component {
     else if(isNaN(num) && num === '.' && this.state.last_sign === '.')
       this.setState({val: this.state.val});
     else{
-      if(a.length < 10)
+      if(a.length < 20)
         this.setState({val: this.state.val + num});
+      if(a.length >= 10){
+        this.setState({styleInput: true});
+      }
     }
     if(isNaN(num))
       this.setState({last_sign: num});
@@ -55,10 +60,12 @@ class App extends Component {
       <div className="calculator">
         <div className="input-field">
           <Input
+            styleInput={true}
             classVal=" answer" 
             val={this.state.answer}
           />
           <Input
+            styleInput={this.state.styleInput}
             classVal=" example"
             val={this.state.val}  
           />

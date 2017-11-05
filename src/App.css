@@ -34,10 +34,7 @@ body{
 
 .answer{
   color: rgba(159, 243, 23, 0.877);
-}
-
-.example{
-
+  padding: 10px;
 }
 
 .buttons{
